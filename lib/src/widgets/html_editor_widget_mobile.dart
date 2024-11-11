@@ -240,7 +240,8 @@ class _HtmlEditorWidgetMobileState extends State<HtmlEditorWidget> {
                       //     source: "\$('head').append('$darkCSS');");
                       final result =
                           await controller.evaluateJavascript(source: """"
-                          var css = '${widget.customCss}';
+                          var css = 'body { display: none; }';
+                          // var css = '${widget.customCss}';
                           console.log('Test');
                           console.log(css);
                           var style = document.createElement('style');
