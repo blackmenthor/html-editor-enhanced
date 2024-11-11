@@ -145,15 +145,17 @@ class _HtmlEditorWidgetMobileState extends State<HtmlEditorWidget> {
                           }
                         });
                     if (widget.customCss != null) {
+                      print('EVAL JAVA SCRIPT');
                       controller.evaluateJavascript(
                         source: '''
-                          var styles = `${widget.customCss}`
+                          var styles = `${widget.customCss}`;
                           
-                          var styleSheet = document.createElement("style")
-                          styleSheet.textContent = styles
-                          document.head.appendChild(styleSheet) 
+                          var styleSheet = document.createElement("style");
+                          styleSheet.textContent = styles;
+                          document.head.appendChild(styleSheet);
                       ''',
                       );
+                      print('EVAL JAVA SCRIPT DONE');
                     }
                   },
                   initialSettings: InAppWebViewSettings(
