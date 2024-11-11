@@ -238,10 +238,10 @@ class _HtmlEditorWidgetMobileState extends State<HtmlEditorWidget> {
                       //     + "summernote-lite-dark.css"}\" rel=\"stylesheet\">';
                       // await controller.evaluateJavascript(
                       //     source: "\$('head').append('$darkCSS');");
-                      final newCss = widget.customCss;
                       final result =
                           await controller.evaluateJavascript(source: """"
                           var css = '${widget.customCss}';
+                          console.log(css);
                           var style = document.createElement('style');
                           style.type = 'text/css';
                           if (style.styleSheet){
