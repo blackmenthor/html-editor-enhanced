@@ -145,7 +145,7 @@ class _HtmlEditorWidgetMobileState extends State<HtmlEditorWidget> {
                           }
                         });
                     if (widget.customCss != null) {
-                      print('EVAL JAVA SCRIPT');
+                      print('EVAL JAVA SCRIPT ${widget.customCss}');
                       // var darkCSS =
                       //     '<link href=\"${(widget.htmlEditorOptions.filePath != null
                       //     ? "file:///android_asset/flutter_assets/packages/html_editor_enhanced/assets/" : "")
