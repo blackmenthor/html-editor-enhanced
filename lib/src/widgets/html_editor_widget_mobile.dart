@@ -241,6 +241,7 @@ class _HtmlEditorWidgetMobileState extends State<HtmlEditorWidget> {
                       final result =
                           await controller.evaluateJavascript(source: """"
                           var css = '${widget.customCss}';
+                          console.log('Test');
                           console.log(css);
                           var style = document.createElement('style');
                           style.type = 'text/css';
