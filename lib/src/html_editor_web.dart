@@ -1,7 +1,7 @@
-import 'package:html_editor_enhanced/html_editor.dart';
-import 'package:html_editor_enhanced/src/widgets/html_editor_widget_web.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:html_editor_enhanced/html_editor.dart';
+import 'package:html_editor_enhanced/src/widgets/html_editor_widget_web.dart';
 
 /// HtmlEditor class for web
 class HtmlEditor extends StatelessWidget {
@@ -13,6 +13,7 @@ class HtmlEditor extends StatelessWidget {
     this.htmlToolbarOptions = const HtmlToolbarOptions(),
     this.otherOptions = const OtherOptions(),
     this.plugins = const [],
+    this.customCss,
   }) : super(key: key);
 
   /// The controller that is passed to the widget, which allows multiple [HtmlEditor]
@@ -34,6 +35,8 @@ class HtmlEditor extends StatelessWidget {
 
   /// Sets the list of Summernote plugins enabled in the editor.
   final List<Plugins> plugins;
+
+  final String? customCss;
 
   @override
   Widget build(BuildContext context) {

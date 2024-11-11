@@ -1,7 +1,7 @@
+import 'package:file_picker/file_picker.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:html_editor_enhanced/html_editor.dart';
-import 'package:file_picker/file_picker.dart';
 
 void main() => runApp(HtmlEditorExampleApp());
 
@@ -68,6 +68,11 @@ class _HtmlEditorExampleState extends State<HtmlEditorExample> {
             children: <Widget>[
               HtmlEditor(
                 controller: controller,
+                customCss: '''
+                  body {
+                    background-color: #000000;
+                  }
+                ''',
                 htmlEditorOptions: HtmlEditorOptions(
                   hint: 'Your text here...',
                   shouldEnsureVisible: true,
