@@ -239,8 +239,19 @@ class _HtmlEditorWidgetMobileState extends State<HtmlEditorWidget> {
                       // await controller.evaluateJavascript(
                       //     source: "\$('head').append('$darkCSS');");
                       final newCss = widget.customCss;
-                      final result = await controller.evaluateJavascript(
-                          source: "\$('head').append('$newCss');");
+                      final result =
+                          await controller.evaluateJavascript(source: """"
+                          var css = '${widget.customCss}';
+                          var style = document.createElement('style');
+                          style.type = 'text/css';
+                          if (style.styleSheet){
+                            // This is required for IE8 and below.
+                            style.styleSheet.cssText = css;
+                          } else {
+                            style.appendChild(document.createTextNode(css));
+                          }
+                          \$('head').append(style);
+                          """);
                       print('EVAL JAVA SCRIPT DONE');
                       print('EVAL JAVA SCRIPT DONE ${result}');
                     }
