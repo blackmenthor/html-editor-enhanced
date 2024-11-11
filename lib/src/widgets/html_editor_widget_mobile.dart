@@ -133,7 +133,7 @@ class _HtmlEditorWidgetMobileState extends State<HtmlEditorWidget> {
               Expanded(
                 child: InAppWebView(
                   initialFile: filePath,
-                  onWebViewCreated: (InAppWebViewController controller) {
+                  onWebViewCreated: (InAppWebViewController controller) async {
                     widget.controller.editorController = controller;
                     controller.addJavaScriptHandler(
                         handlerName: 'FormatSettings',
@@ -146,7 +146,7 @@ class _HtmlEditorWidgetMobileState extends State<HtmlEditorWidget> {
                         });
                     if (widget.customCss != null) {
                       print('EVAL JAVA SCRIPT');
-                      controller.evaluateJavascript(
+                      final result = await controller.evaluateJavascript(
                         source: '''
                           var styles = `${widget.customCss}`;
                           
@@ -156,6 +156,7 @@ class _HtmlEditorWidgetMobileState extends State<HtmlEditorWidget> {
                       ''',
                       );
                       print('EVAL JAVA SCRIPT DONE');
+                      print('EVAL JAVA SCRIPT DONE ${result}');
                     }
                   },
                   initialSettings: InAppWebViewSettings(
