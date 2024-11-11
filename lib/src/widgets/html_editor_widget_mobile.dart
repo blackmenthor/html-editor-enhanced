@@ -233,8 +233,8 @@ class _HtmlEditorWidgetMobileState extends State<HtmlEditorWidget> {
                     if (widget.customCss != null) {
                       print('EVAL JAVA SCRIPT ${widget.customCss}');
                       final result =
-                          await controller.evaluateJavascript(source: """"
-                          var css = 'body { display: none; }';
+                          await controller.evaluateJavascript(source: """
+                          var css = '${widget.customCss}';
                           console.log('Test');
                           console.log(css);
                           var style = document.createElement('style');
@@ -245,6 +245,7 @@ class _HtmlEditorWidgetMobileState extends State<HtmlEditorWidget> {
                           } else {
                             style.appendChild(document.createTextNode(css));
                           }
+                          \$('head').append(style);
                           """);
                       print('EVAL JAVA SCRIPT DONE');
                       print('EVAL JAVA SCRIPT DONE ${result}');
