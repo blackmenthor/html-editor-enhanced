@@ -240,8 +240,7 @@ class _HtmlEditorWidgetMobileState extends State<HtmlEditorWidget> {
                       //     source: "\$('head').append('$darkCSS');");
                       final newCss = widget.customCss;
                       final result = await controller.evaluateJavascript(
-                        source: "document.head.appendChild($newCss)",
-                      );
+                          source: "\$('head').append('$newCss');");
                       print('EVAL JAVA SCRIPT DONE');
                       print('EVAL JAVA SCRIPT DONE ${result}');
                     }
