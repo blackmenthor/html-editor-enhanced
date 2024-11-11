@@ -146,14 +146,15 @@ class _HtmlEditorWidgetMobileState extends State<HtmlEditorWidget> {
                         });
                     if (widget.customCss != null) {
                       print('EVAL JAVA SCRIPT');
+                      // var darkCSS =
+                      //     '<link href=\"${(widget.htmlEditorOptions.filePath != null
+                      //     ? "file:///android_asset/flutter_assets/packages/html_editor_enhanced/assets/" : "")
+                      //     + "summernote-lite-dark.css"}\" rel=\"stylesheet\">';
+                      // await controller.evaluateJavascript(
+                      //     source: "\$('head').append('$darkCSS');");
+                      final newCss = widget.customCss;
                       final result = await controller.evaluateJavascript(
-                        source: '''
-                          var styles = `${widget.customCss}`;
-                          
-                          var styleSheet = document.createElement("style");
-                          styleSheet.textContent = styles;
-                          document.head.appendChild(styleSheet);
-                      ''',
+                        source: "\$('head').append('$newCss');",
                       );
                       print('EVAL JAVA SCRIPT DONE');
                       print('EVAL JAVA SCRIPT DONE ${result}');
