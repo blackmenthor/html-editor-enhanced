@@ -144,21 +144,6 @@ class _HtmlEditorWidgetMobileState extends State<HtmlEditorWidget> {
                             widget.controller.toolbar!.updateToolbar(json);
                           }
                         });
-                    if (widget.customCss != null) {
-                      print('EVAL JAVA SCRIPT ${widget.customCss}');
-                      // var darkCSS =
-                      //     '<link href=\"${(widget.htmlEditorOptions.filePath != null
-                      //     ? "file:///android_asset/flutter_assets/packages/html_editor_enhanced/assets/" : "")
-                      //     + "summernote-lite-dark.css"}\" rel=\"stylesheet\">';
-                      // await controller.evaluateJavascript(
-                      //     source: "\$('head').append('$darkCSS');");
-                      final newCss = widget.customCss;
-                      final result = await controller.evaluateJavascript(
-                        source: "document.head.appendChild($newCss)",
-                      );
-                      print('EVAL JAVA SCRIPT DONE');
-                      print('EVAL JAVA SCRIPT DONE ${result}');
-                    }
                   },
                   initialSettings: InAppWebViewSettings(
                     javaScriptEnabled: true,
@@ -245,6 +230,22 @@ class _HtmlEditorWidgetMobileState extends State<HtmlEditorWidget> {
                   },
                   onLoadStop:
                       (InAppWebViewController controller, Uri? uri) async {
+                    if (widget.customCss != null) {
+                      print('EVAL JAVA SCRIPT ${widget.customCss}');
+                      // var darkCSS =
+                      //     '<link href=\"${(widget.htmlEditorOptions.filePath != null
+                      //     ? "file:///android_asset/flutter_assets/packages/html_editor_enhanced/assets/" : "")
+                      //     + "summernote-lite-dark.css"}\" rel=\"stylesheet\">';
+                      // await controller.evaluateJavascript(
+                      //     source: "\$('head').append('$darkCSS');");
+                      final newCss = widget.customCss;
+                      final result = await controller.evaluateJavascript(
+                        source: "document.head.appendChild($newCss)",
+                      );
+                      print('EVAL JAVA SCRIPT DONE');
+                      print('EVAL JAVA SCRIPT DONE ${result}');
+                    }
+
                     var url = uri.toString();
                     var maximumFileSize = 10485760;
                     if (url.contains(filePath)) {
