@@ -231,9 +231,7 @@ class _HtmlEditorWidgetMobileState extends State<HtmlEditorWidget> {
                   onLoadStop:
                       (InAppWebViewController controller, Uri? uri) async {
                     if (widget.customCss != null) {
-                      print('EVAL JAVA SCRIPT ${widget.customCss}');
-                      final result =
-                          await controller.evaluateJavascript(source: """
+                      await controller.evaluateJavascript(source: """
                           var css = '${widget.customCss}';
                           console.log('Test');
                           console.log(css);
@@ -247,8 +245,6 @@ class _HtmlEditorWidgetMobileState extends State<HtmlEditorWidget> {
                           }
                           \$('head').append(style);
                           """);
-                      print('EVAL JAVA SCRIPT DONE');
-                      print('EVAL JAVA SCRIPT DONE ${result}');
                     }
 
                     var url = uri.toString();
