@@ -1120,7 +1120,8 @@ class ToolbarWidgetState extends State<ToolbarWidget> {
                               newColor = color;
                             },
                             title: Text('Choose a Color',
-                                style: Theme.of(context).textTheme.headlineSmall),
+                                style:
+                                    Theme.of(context).textTheme.headlineSmall),
                             width: 40,
                             height: 40,
                             spacing: 0,
@@ -1838,6 +1839,10 @@ class ToolbarWidgetState extends State<ToolbarWidget> {
                                         if (value == null || value.isEmpty) {
                                           return 'Please enter a URL!';
                                         }
+                                        if (!value.startsWith('http://') ||
+                                            !value.startsWith('https://')) {
+                                          return 'Please enter a correct URL starting with http:// or https://!';
+                                        }
                                         return null;
                                       },
                                     ),
@@ -1848,7 +1853,7 @@ class ToolbarWidgetState extends State<ToolbarWidget> {
                                           width: 24.0,
                                           child: Checkbox(
                                             value: openNewTab,
-                                            activeColor: Color(0xFF827250),
+                                            activeColor: Colors.white,
                                             onChanged: (bool? value) {
                                               setState(() {
                                                 openNewTab = value!;
@@ -1858,11 +1863,10 @@ class ToolbarWidgetState extends State<ToolbarWidget> {
                                         ),
                                         ElevatedButton(
                                           style: ElevatedButton.styleFrom(
-                                              backgroundColor: Theme.of(context)
-                                                  .dialogBackgroundColor,
-                                              padding: EdgeInsets.only(
-                                                  left: 5, right: 5),
-                                              elevation: 0.0),
+                                            padding: EdgeInsets.only(
+                                                left: 5, right: 5),
+                                            elevation: 0.0,
+                                          ),
                                           onPressed: () {
                                             setState(() {
                                               openNewTab = !openNewTab;
