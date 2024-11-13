@@ -521,18 +521,19 @@ class ToolbarWidgetState extends State<ToolbarWidget> {
                               style: TextStyle(
                                   fontFamily: 'times', color: Colors.grey))),
                     )),
-                CustomDropdownMenuItem(
-                    value: 'pre',
-                    child: PointerInterceptor(
-                      child: Container(
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(5),
-                              color: Colors.grey),
-                          padding: EdgeInsets.symmetric(horizontal: 10.0),
-                          child: Text('Code',
-                              style: TextStyle(
-                                  fontFamily: 'courier', color: Colors.white))),
-                    )),
+                // TODO: RE ENABLE CODE
+                // CustomDropdownMenuItem(
+                //     value: 'pre',
+                //     child: PointerInterceptor(
+                //       child: Container(
+                //           decoration: BoxDecoration(
+                //               borderRadius: BorderRadius.circular(5),
+                //               color: Colors.grey),
+                //           padding: EdgeInsets.symmetric(horizontal: 10.0),
+                //           child: Text('Code',
+                //               style: TextStyle(
+                //                   fontFamily: 'courier', color: Colors.white))),
+                //     )),
                 CustomDropdownMenuItem(
                   value: 'h1',
                   child: PointerInterceptor(
