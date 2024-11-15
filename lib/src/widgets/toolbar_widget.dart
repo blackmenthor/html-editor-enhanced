@@ -1840,9 +1840,9 @@ class ToolbarWidgetState extends State<ToolbarWidget> {
                                         if (value == null || value.isEmpty) {
                                           return 'Please enter a URL!';
                                         }
-                                        if (!value.startsWith('http://') ||
+                                        if (!value.startsWith('http://') &&
                                             !value.startsWith('https://')) {
-                                          return 'Please enter a correct URL starting with http:// or https://!';
+                                          return 'Please enter a correct URL';
                                         }
                                         return null;
                                       },
